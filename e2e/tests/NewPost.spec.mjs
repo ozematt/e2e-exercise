@@ -10,7 +10,6 @@ test.describe("new post", () => {
       page.getByRole("button", { name: "Global Feed" })
     ).toBeVisible();
 
-    await page.getByRole("link", { name: "Sign in" }).click();
     await page.getByPlaceholder("Email").fill("leia@coderslab.pl");
     await page.getByPlaceholder("Password").fill("secret");
     await page.getByRole("button").click();
