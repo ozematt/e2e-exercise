@@ -34,5 +34,7 @@ test.describe("new post", () => {
     ).toBeVisible();
 
     expect(page.url()).toBe("http://127.0.0.1:3000/article/przyk-adowy-tytu");
+
+    await expect(page.locator("h1")).toHaveText("Przykładowy tytuł");
   });
 });
