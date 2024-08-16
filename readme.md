@@ -1,13 +1,4 @@
 
-
-**The general page breakdown looks like this:**
-
-- Home page (URL: /#/ )
-    - List of tags
-    - List of articles pulled from either Feed, Global, or by Tag
-    - Pagination for list of articles
-- Sign in/Sign up pages (URL: /#/login, /#/register )
-    - Use JWT (store the token in localStorage)
 - Settings page (URL: /#/settings )
 - Editor page to create/edit articles (URL: /#/editor, /#/editor/article-slug-here )
 - Article page (URL: /#/article/article-slug-here )
