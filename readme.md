@@ -1,9 +1,5 @@
 
 
-## Functionality overview
-
-The example application is a social blogging site (i.e. a Medium.com clone) called "Conduit". It uses a custom API for all requests, including authentication.
-
 **General functionality:**
 
 - Authenticate users via JWT (login/signup pages + logout button on settings page)
