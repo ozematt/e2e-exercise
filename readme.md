@@ -1,8 +1,4 @@
-
-
-[RealWorld](https://github.com/gothinkster/realworld)&nbsp;&nbsp;&nbsp;&nbsp;[Demo](https://react-vite-realworld.netlify.app/)
-
-## Getting started
+# Getting started
 
 To get the frontend running locally:
 
