@@ -1,8 +1,4 @@
 
-
-**General functionality:**
-
-- Authenticate users via JWT (login/signup pages + logout button on settings page)
 - CRU* users (sign up & settings page - no deleting required)
 - CRUD Articles
 - CR*D Comments on articles (no updating required)
