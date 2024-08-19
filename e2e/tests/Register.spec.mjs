@@ -12,7 +12,8 @@ test.describe("Register user flow", () => {
     await page.locator("a[href='/register']").click();
 
     await page.locator(".form-control[name='username']").fill("Yoda");
-    await page.locator('input[name="email"]').fill(email);
+
+    await page.locator('.form-control[type="email"]').fill(email);
     await page.locator('.form-control[type="password"]').fill("secret");
     await page.getByRole("button", { name: "Sign up" }).click();
     await expect(page.getByText("yoda")).toBeVisible();
