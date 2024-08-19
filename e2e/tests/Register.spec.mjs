@@ -8,7 +8,8 @@ test.describe("Register user flow", () => {
     const email = `yoda-${id}@coderslab.pl`;
 
     await page.goto("/");
-    await page.getByTestId("register-link").click();
+
+    await page.locator("a[href='/register']").click();
     await page.locator('input[placeholder="Your Name"]').fill("Yoda");
     await page.locator('input[name="email"]').fill(email);
     await page.locator('.form-control[type="password"]').fill("secret");
