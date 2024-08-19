@@ -13,6 +13,7 @@ test.describe("Login flow", () => {
     await page.locator("input[type='password']").fill("secret");
 
     await page.locator("button[type='submit']").click();
+
     await expect(page.getByRole("link", { name: "luke" })).toBeVisible();
   });
 });
