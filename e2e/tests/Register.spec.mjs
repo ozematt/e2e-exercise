@@ -10,7 +10,8 @@ test.describe("Register user flow", () => {
     await page.goto("/");
 
     await page.locator("a[href='/register']").click();
-    await page.locator('input[placeholder="Your Name"]').fill("Yoda");
+
+    await page.locator('.form-control[name="Username"]').fill("Yoda");
     await page.locator('input[name="email"]').fill(email);
     await page.locator('.form-control[type="password"]').fill("secret");
     await page.getByRole("button", { name: "Sign up" }).click();
