@@ -9,7 +9,8 @@ test.describe("Login flow", () => {
     await page.locator(".nav-link[href='/login']").click();
 
     await page.locator("input[type='email']").fill("luke@coderslab.pl");
-    await page.getByPlaceholder("Password").fill("secret");
+
+    await page.locator("input[type='password']").fill("secret");
     await page.getByRole("button").click();
     await expect(page.getByRole("link", { name: "luke" })).toBeVisible();
   });
