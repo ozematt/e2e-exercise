@@ -5,7 +5,8 @@ test.describe("Login flow", () => {
     page,
   }) => {
     await page.goto("/");
-    await page.getByRole("link", { name: "Sign in" }).click();
+
+    await page.locator(".nav-link[href='/login']").click();
     await page.getByPlaceholder("Email").fill("luke@coderslab.pl");
     await page.getByPlaceholder("Password").fill("secret");
     await page.getByRole("button").click();
