@@ -24,5 +24,7 @@ test.describe("User actions on page", () => {
     await expect(page.locator("input[placeholder='Password']")).toHaveValue(
       "123456"
     );
+
+    await page.locator("button[type='submit']").click();
   });
 });
