@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test.describe("User actions on page", () => {
   test("user flow check", async ({ page }) => {
+    //
     await page.goto("/");
 
     const singUp = page.locator("a[href='/register']");
@@ -26,5 +27,11 @@ test.describe("User actions on page", () => {
     );
 
     await page.locator("button[type='submit']").click();
+
+    await page.locator("a[href='/editor']").click();
+    await page.locator("input[name='title']").fill("Tytuł artykułu");
+    await page.locator("input[name='description']").fill("O niczym");
+    await page.locator("textarea[name='body']").fill("Treść aktykułu...");
+    await page.locator("input[placeholder='Enter tags']").fill("#tage2e");
   });
 });
