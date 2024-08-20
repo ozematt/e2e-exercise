@@ -22,5 +22,10 @@ test.describe("Main page element displayed", () => {
 
     const feedButton = page.getByRole("button", { name: "Your Feed" });
     await expect(feedButton).toBeVisible();
+
+    const singIn = page.locator("a[href='/register']");
+    const singUp = page.locator("a[href='/login']");
+    await expect(singUp).not.toBeVisible();
+    await expect(singIn).not.toBeVisible();
   });
 });
