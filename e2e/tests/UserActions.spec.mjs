@@ -46,7 +46,7 @@ test.describe("User actions on page", () => {
     //main page return
     await page.goto("/");
 
-    //tag check
+    //tag visible check
     await expect(
       page.getByRole("link", { name: "#tage2e", exact: true })
     ).toBeVisible();
