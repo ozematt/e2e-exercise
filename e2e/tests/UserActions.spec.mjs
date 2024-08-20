@@ -2,11 +2,14 @@ import { test, expect } from "@playwright/test";
 
 test.describe("User actions on page", () => {
   test("user flow check", async ({ page }) => {
-    //
+    //entered main page
     await page.goto("/");
 
+    //checking button visibility
     const singUp = page.locator("a[href='/register']");
     await expect(singUp).toBeVisible();
+
+    //button click
     await singUp.click();
 
     await page.locator("input[placeholder='Your Name']").fill("obi-one");
