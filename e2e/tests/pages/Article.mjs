@@ -3,14 +3,23 @@ class Article {
     this.page = page;
   }
   async fillArticleTitle(title) {
-    await page.locator("input[name='title']").fill(title);
+    await this.page.locator("input[name='title']").fill(title);
   }
 
-  async fillArticleSummary(summary) {}
+  async fillArticleSummary(summary) {
+    await this.page.locator("input[name='description']").fill(summary);
+  }
 
-  async fillArticleContent(content) {}
+  async fillArticleContent(content) {
+    await this.page.locator("textarea[name='body']").fill(content);
+  }
 
-  async addTags(tags) {}
+  async addTags(tags) {
+    await this.page.locator("input[placeholder='Enter tags']").fill(tags);
+    await this.page.locator("input[placeholder='Enter tags']").press("Enter");
+  }
 
-  async clickPublish() {}
+  async clickPublish() {
+    await this.page.locator("button[type='submit']").click();
+  }
 }
