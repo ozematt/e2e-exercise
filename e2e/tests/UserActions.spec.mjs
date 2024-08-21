@@ -1,7 +1,9 @@
 import { test, expect } from "@playwright/test";
+import { Article } from "../../src/pages/Article";
 
 test.describe("User actions on page", () => {
   test("user flow check", async ({ page }) => {
+    const article = new Article(page);
     //entered main page
     await page.goto("/");
 
