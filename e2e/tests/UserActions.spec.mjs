@@ -42,7 +42,6 @@ test.describe("User actions on page", () => {
     await article.fillArticleContent("Treść aktykułu...");
     await article.addTags(["#tage2e"]);
     await article.clickPublish();
-    // await page.locator("button[type='submit']").click();
 
     //main page return
     await page.goto("/");
