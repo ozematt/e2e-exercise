@@ -1,4 +1,4 @@
-class Article {
+export class Article {
   constructor(page) {
     this.page = page;
   }

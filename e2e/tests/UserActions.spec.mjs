@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { Article } from "../../src/pages/Article";
+import { Article } from "./pages/Article";
 
 test.describe("User actions on page", () => {
   test("user flow check", async ({ page }) => {
@@ -12,7 +12,7 @@ test.describe("User actions on page", () => {
     await expect(signUp).toBeVisible();
 
     //button click
-    await singUp.click();
+    await signUp.click();
 
     //sing up form fill
     const id = Date.now();
