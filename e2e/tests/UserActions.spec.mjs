@@ -5,13 +5,13 @@ test.describe("User actions on page", () => {
   test("user flow check", async ({ page }) => {
     const article = new Article(page);
     //entered main page
-    await page.goto("http://localhost:3000/");
+    await page.goto("http://127.0.0.1:3000");
 
     //checking button visibility
-    await expect(page.getByTestId("register-link")).toBeVisible();
+    await expect(page.getByRole("link", { name: "Sign up" })).toBeVisible();
 
     //button click
-    await page.getByTestId("register-link").click();
+    await page.getByRole("link", { name: "Sign up" }).click();
 
     //sing up form fill
     const id = Date.now();
