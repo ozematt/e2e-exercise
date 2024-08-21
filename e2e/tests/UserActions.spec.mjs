@@ -8,8 +8,8 @@ test.describe("User actions on page", () => {
     await page.goto("/");
 
     //checking button visibility
-    const singUp = page.locator("a[href='/register']");
-    await expect(singUp).toBeVisible();
+    const signUp = page.locator("a[href='/register']");
+    await expect(signUp).toBeVisible();
 
     //button click
     await singUp.click();
