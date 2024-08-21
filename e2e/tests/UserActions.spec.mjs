@@ -40,7 +40,8 @@ test.describe("User actions on page", () => {
     //new post form fill
     await article.fillArticleTitle("Tytuł artykułu");
     await article.fillArticleSummary("O niczym");
-    await page.locator("textarea[name='body']").fill("Treść aktykułu...");
+    await article.fillArticleContent("Treść aktykułu...");
+    // await page.locator("textarea[name='body']").fill("Treść aktykułu...");
     await page.locator("input[placeholder='Enter tags']").fill("#tage2e");
     await page.locator("input[placeholder='Enter tags']").press("Enter");
     await page.locator("button[type='submit']").click();
