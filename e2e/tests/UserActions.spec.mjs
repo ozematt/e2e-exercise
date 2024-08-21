@@ -41,8 +41,6 @@ test.describe("User actions on page", () => {
     await article.fillArticleSummary("O niczym");
     await article.fillArticleContent("Treść aktykułu...");
     await article.addTags(["#tage2e"]);
-    // await page.locator("input[placeholder='Enter tags']").fill("#tage2e");
-    // await page.locator("input[placeholder='Enter tags']").press("Enter");
     await page.locator("button[type='submit']").click();
 
     //main page return
