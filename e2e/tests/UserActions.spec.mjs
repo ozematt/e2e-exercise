@@ -38,7 +38,7 @@ test.describe("User actions on page", () => {
     await page.getByRole("link", { name: "New Post" }).click();
 
     //new post form fill
-    await page.locator("input[name='title']").fill("Tytuł artykułu");
+    await article.fillArticleTitle("Tytuł artykułu");
     await page.locator("input[name='description']").fill("O niczym");
     await page.locator("textarea[name='body']").fill("Treść aktykułu...");
     await page.locator("input[placeholder='Enter tags']").fill("#tage2e");
