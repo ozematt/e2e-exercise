@@ -5,14 +5,13 @@ test.describe("User actions on page", () => {
   test("user flow check", async ({ page }) => {
     const article = new Article(page);
     //entered main page
-    await page.goto("/");
+    await page.goto("http://localhost:3000/");
 
     //checking button visibility
-    const signUp = page.locator("a[href='/register']");
-    await expect(signUp).toBeVisible();
+    await expect(page.getByTestId("register-link")).toBeVisible();
 
     //button click
-    await signUp.click();
+    await page.getByTestId("register-link").click();
 
     //sing up form fill
     const id = Date.now();
@@ -41,9 +40,9 @@ test.describe("User actions on page", () => {
     await article.fillArticleTitle("Tytuł artykułu");
     await article.fillArticleSummary("O niczym");
     await article.fillArticleContent("Treść aktykułu...");
-    // await page.locator("textarea[name='body']").fill("Treść aktykułu...");
-    await page.locator("input[placeholder='Enter tags']").fill("#tage2e");
-    await page.locator("input[placeholder='Enter tags']").press("Enter");
+    await article.addTags(["#tage2e"]);
+    // await page.locator("input[placeholder='Enter tags']").fill("#tage2e");
+    // await page.locator("input[placeholder='Enter tags']").press("Enter");
     await page.locator("button[type='submit']").click();
 
     //main page return

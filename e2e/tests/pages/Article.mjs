@@ -15,8 +15,12 @@ export class Article {
   }
 
   async addTags(tags) {
-    await this.page.locator("input[placeholder='Enter tags']").fill(tags);
-    await this.page.locator("input[placeholder='Enter tags']").press("Enter");
+    const locator = this.page.locator('input[placeholder="Enter tags"]');
+
+    for (const tag of tags) {
+      await locator.fill(tag);
+      await locator.press("Enter");
+    }
   }
 
   async clickPublish() {
