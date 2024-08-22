@@ -8,6 +8,7 @@ class Article extends Common {
     super(page);
   }
   async fillArticleTitle(title) {
+    await this.fillInput();
     await this.page.locator("input[name='title']").fill(title);
   }
 
