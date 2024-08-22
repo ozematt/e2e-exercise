@@ -25,7 +25,6 @@ test.describe("User actions on page", () => {
     await common.fillInput("username", "obi-one");
     await common.fillInput("email", email);
     await common.fillInput("password", "123456");
-    // await page.locator("input[placeholder='Password']").fill("123456");
 
     //values check
     await expect(page.locator("input[placeholder='Your Name']")).toHaveValue(
