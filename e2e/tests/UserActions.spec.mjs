@@ -23,7 +23,6 @@ test.describe("User actions on page", () => {
     const email = `obi-one-${id}@coderslab.pl`;
 
     await common.fillInput("username", "obi-one");
-    // await page.locator("input[placeholder='Your Name']").fill("obi-one");
     await common.fillInput("email", email);
     // await page.locator("input[placeholder='Email']").fill(email);
     await common.fillInput("password", "123456");
