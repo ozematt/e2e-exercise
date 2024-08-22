@@ -1,6 +1,10 @@
 import { test as base, expect } from "@playwright/test";
 import { injectArticle } from "./pages/Article";
 
+const test = base.extend({
+  article: injectArticle,
+});
+
 test.describe("User actions on page", () => {
   test("user flow check", async ({ page }) => {
     //entered main page
