@@ -1,9 +1,8 @@
-import { test, expect } from "@playwright/test";
-import { Article } from "./pages/Article";
+import { test as base, expect } from "@playwright/test";
+import { injectArticle } from "./pages/Article";
 
 test.describe("User actions on page", () => {
   test("user flow check", async ({ page }) => {
-    const article = new Article(page);
     //entered main page
     await page.goto("http://127.0.0.1:3000");
 

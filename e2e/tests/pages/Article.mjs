@@ -1,4 +1,9 @@
-export class Article {
+import { Common } from "./Common.mjs";
+
+export const injectArticle = async ({ page }, use) =>
+  await use(new Article(page));
+
+class Article extends Common {
   constructor(page) {
     this.page = page;
   }
