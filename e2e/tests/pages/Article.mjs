@@ -5,7 +5,7 @@ export const injectArticle = async ({ page }, use) =>
 
 class Article extends Common {
   constructor(page) {
-    this.page = page;
+    super(page);
   }
   async fillArticleTitle(title) {
     await this.page.locator("input[name='title']").fill(title);
