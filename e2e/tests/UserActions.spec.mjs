@@ -6,7 +6,7 @@ const test = base.extend({
 });
 
 test.describe("User actions on page", () => {
-  test("user flow check", async ({ page }) => {
+  test("user flow check", async ({ page, article }) => {
     //entered main page
     await page.goto("http://127.0.0.1:3000");
 
