@@ -1,12 +1,14 @@
 import { test as base, expect } from "@playwright/test";
 import { injectArticle } from "./pages/Article";
+import { injectCommon } from "./pages/Common.mjs";
 
 const test = base.extend({
   article: injectArticle,
+  common: injectCommon,
 });
 
 test.describe("User actions on page", () => {
-  test("user flow check", async ({ page, article }) => {
+  test("user flow check", async ({ page, article, common }) => {
     //entered main page
     await page.goto("http://127.0.0.1:3000");
 
@@ -20,9 +22,12 @@ test.describe("User actions on page", () => {
     const id = Date.now();
     const email = `obi-one-${id}@coderslab.pl`;
 
-    await page.locator("input[placeholder='Your Name']").fill("obi-one");
-    await page.locator("input[placeholder='Email']").fill(email);
-    await page.locator("input[placeholder='Password']").fill("123456");
+    await common.fillInput("username", "obi-one");
+    // await page.locator("input[placeholder='Your Name']").fill("obi-one");
+    await common.fillInput("email", email);
+    // await page.locator("input[placeholder='Email']").fill(email);
+    await common.fillInput("password", "123456");
+    // await page.locator("input[placeholder='Password']").fill("123456");
 
     //values check
     await expect(page.locator("input[placeholder='Your Name']")).toHaveValue(

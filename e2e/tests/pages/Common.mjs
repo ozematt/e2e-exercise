@@ -1,3 +1,6 @@
+export const injectCommon = async ({ page }, use) =>
+  await use(new Common(page));
+
 export class Common {
   constructor(page) {
     this.page = page;
