@@ -11,7 +11,7 @@ export class Common {
   async clearInput(name) {
     await this.#getInput(name).clear();
   }
-  async buttonClick(type) {
+  async submitClick(type) {
     await this.page.locator(`button[type='${type}']`).click();
   }
   #getInput(name) {

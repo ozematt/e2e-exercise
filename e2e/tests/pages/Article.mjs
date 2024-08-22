@@ -29,6 +29,6 @@ class Article extends Common {
   }
 
   async clickPublish() {
-    await this.buttonClick("submit");
+    await this.submitClick("submit");
   }
 }
