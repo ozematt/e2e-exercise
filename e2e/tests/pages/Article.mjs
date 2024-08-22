@@ -29,6 +29,6 @@ class Article extends Common {
   }
 
   async clickPublish() {
-    await this.page.locator("button[type='submit']").click();
+    await this.buttonClick("submit");
   }
 }

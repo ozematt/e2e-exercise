@@ -8,8 +8,8 @@ export class Common {
   async clearInput(name) {
     await this.#getInput(name).clear();
   }
-  async buttonClick(name) {
-    await this.page.getByRole(`"button", { name: "${name}" }`).click();
+  async buttonClick(type) {
+    await this.page.locator(`button[type='${type}']`).click();
   }
   #getInput(name) {
     return this.page.locator(`input[name="${name}"]`);
