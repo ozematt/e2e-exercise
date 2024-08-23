@@ -18,22 +18,35 @@ test.describe("new post", () => {
 
     await page.getByRole("link", { name: "Sign in" }).click();
 
-    await page.getByPlaceholder("Email").fill("leia@coderslab.pl");
-    await page.getByPlaceholder("Password").fill("secret");
+    await newPost.fillNewPostInput("Email", "leia@coderslab.pl");
+    // await page.getByPlaceholder("Email").fill("leia@coderslab.pl");
+    await newPost.fillNewPostInput("Password", "secret");
+    // await page.getByPlaceholder("Password").fill("secret");
 
     await page.getByRole("button").click();
 
     await expect(page.getByRole("link", { name: "leia" })).toBeVisible();
 
     await page.getByRole("link", { name: "New Post" }).click();
-    await page.getByPlaceholder("Article Title").fill("Przykładowy tytuł");
-    await page
-      .getByPlaceholder("What's this article about?")
-      .fill("Przykładowy tekst");
-    await page
-      .getByPlaceholder("Write your article (in markdown)")
-      .fill("Przykładowy test posta");
-    await page.getByPlaceholder("Enter tags").fill("Przykładowy tag");
+
+    await newPost.fillNewPostInput("Article Title", "Przykładowy tytuł");
+    // await page.getByPlaceholder("Article Title").fill("Przykładowy tytuł");
+    await newPost.fillNewPostInput(
+      "What's this article about?",
+      "Przykładowy tekst"
+    );
+    // await page
+    //   .getByPlaceholder("What's this article about?")
+    //   .fill("Przykładowy tekst");
+    await newPost.fillNewPostInput(
+      "Write your article (in markdown)",
+      "Przykładowy test posta"
+    );
+    // await page
+    //   .getByPlaceholder("Write your article (in markdown)")
+    //   .fill("Przykładowy test posta");
+    await newPost.fillNewPostInput("Enter tags", "Przykładowy tag");
+    // await page.getByPlaceholder("Enter tags").fill("Przykładowy tag");
 
     await page.getByRole("button", { name: "Publish Article" }).click();
 

@@ -9,10 +9,10 @@ class NewPost extends Common {
   }
 
   async fillNewPostInput(placeholder, content) {
-    await this.page.getByPlaceholder(`"${placeholder}"`).fill(`"${content}"`);
+    await this.page.getByPlaceholder(`${placeholder}`).fill(`${content}`);
   }
 
   async clickNewPostButtons(role, name) {
-    await this.page.getByRole(`"${role}", { name: "${name}" }`).click();
+    await this.page.getByRole(`${role}, { name: ${name} }`).click();
   }
 }
