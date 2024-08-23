@@ -1,6 +1,7 @@
 import { Common } from "./Common.mjs";
 
-const injectNewPost = async ({ page }, use) => await use(new NewPost(page));
+export const injectNewPost = async ({ page }, use) =>
+  await use(new NewPost(page));
 
 class NewPost extends Common {
   constructor(page) {

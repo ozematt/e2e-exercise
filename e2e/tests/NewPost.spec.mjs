@@ -1,12 +1,12 @@
 import { test as base, expect } from "@playwright/test";
-import { injectCommon } from "./pages/Common.mjs";
+import { injectNewPost } from "./pages/NewPost.mjs";
 
 const test = base.extend({
-  common: injectCommon,
+  newPost: injectNewPost,
 });
 
 test.describe("new post", () => {
-  test("Go to the post creation page", async ({ page, common }) => {
+  test("Go to the post creation page", async ({ page, newPost }) => {
     await page.goto("/");
 
     await expect(
