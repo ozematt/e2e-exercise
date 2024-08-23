@@ -23,7 +23,8 @@ test.describe("new post", () => {
     await page.getByRole("button").click();
     await expect(page.getByRole("link", { name: "leia" })).toBeVisible();
 
-    await page.getByRole("link", { name: "New Post" }).click();
+    await newPost.clickNewPostButtons("link", "New Post");
+    // await page.getByRole("link", { name: "New Post" }).click();
     await newPost.fillNewPostInput("Article Title", "Przykładowy tytuł");
     await newPost.fillNewPostInput(
       "What's this article about?",
@@ -36,7 +37,8 @@ test.describe("new post", () => {
 
     await newPost.fillNewPostInput("Enter tags", "Przykładowy tag");
 
-    await page.getByRole("button", { name: "Publish Article" }).click();
+    await newPost.clickNewPostButtons("button", "Publish Article");
+    // await page.getByRole("button", { name: "Publish Article" }).click();
 
     await expect(
       page.getByRole("button", { name: "Post Comment" })
