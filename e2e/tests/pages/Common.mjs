@@ -9,6 +9,7 @@ export class Common {
   async fillInput(name, value) {
     await this.#getInput(name).fill(value);
   }
+  //clear input
   async clearInput(name) {
     await this.#getInput(name).clear();
   }
