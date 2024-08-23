@@ -3,6 +3,7 @@ import { test, expect } from "@playwright/test";
 test.describe("new post", () => {
   test("Go to the post creation page", async ({ page }) => {
     await page.goto("/");
+
     await expect(
       page.getByText("A place to share your knowledge.")
     ).toBeVisible();

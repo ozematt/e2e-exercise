@@ -14,6 +14,7 @@ export class Common {
   async submitClick(type) {
     await this.page.locator(`button[type='${type}']`).click();
   }
+  //private method
   #getInput(name) {
     return this.page.locator(`input[name="${name}"]`);
   }
