@@ -17,14 +17,12 @@ test.describe("new post", () => {
     ).toBeVisible();
 
     await newPost.clickNewPostButtons("link", "Sign in");
-    // await page.getByRole("link", { name: "Sign in" }).click();
     await newPost.fillNewPostInput("Email", "leia@coderslab.pl");
     await newPost.fillNewPostInput("Password", "secret");
     await page.getByRole("button").click();
     await expect(page.getByRole("link", { name: "leia" })).toBeVisible();
 
     await newPost.clickNewPostButtons("link", "New Post");
-    // await page.getByRole("link", { name: "New Post" }).click();
     await newPost.fillNewPostInput("Article Title", "Przykładowy tytuł");
     await newPost.fillNewPostInput(
       "What's this article about?",
@@ -36,9 +34,7 @@ test.describe("new post", () => {
     );
 
     await newPost.fillNewPostInput("Enter tags", "Przykładowy tag");
-
     await newPost.clickNewPostButtons("button", "Publish Article");
-    // await page.getByRole("button", { name: "Publish Article" }).click();
 
     await expect(
       page.getByRole("button", { name: "Post Comment" })
