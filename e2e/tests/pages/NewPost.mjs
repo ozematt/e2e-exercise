@@ -14,6 +14,5 @@ class NewPost extends Common {
 
   async clickNewPostButtons(role, name) {
     await this.page.getByRole(role, { name: name }).click();
-    // await this.page.getByRole(`${role}`, `{ name: ${name} }`).click();
   }
 }
