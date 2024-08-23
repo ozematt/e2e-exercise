@@ -3,7 +3,6 @@ import { injectArticle } from "./pages/Article.mjs";
 import { injectCommon } from "./pages/Common.mjs";
 
 const test = base.extend({
-  article: injectArticle,
   common: injectCommon,
 });
 
