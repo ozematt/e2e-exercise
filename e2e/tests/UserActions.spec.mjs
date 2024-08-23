@@ -22,6 +22,7 @@ test.describe("User actions on page", () => {
     const id = Date.now();
     const email = `obi-one-${id}@coderslab.pl`;
 
+    //do not use common like that
     await common.fillInput("username", "obi-one");
     await common.fillInput("email", email);
     await common.fillInput("password", "123456");
