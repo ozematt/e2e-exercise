@@ -1,5 +1,4 @@
 import { test as base, expect } from "@playwright/test";
-import { injectArticle } from "./pages/Article.mjs";
 import { injectCommon } from "./pages/Common.mjs";
 
 const test = base.extend({
@@ -7,7 +6,7 @@ const test = base.extend({
 });
 
 test.describe("new post", () => {
-  test("Go to the post creation page", async ({ page, article, common }) => {
+  test("Go to the post creation page", async ({ page, common }) => {
     await page.goto("/");
 
     await expect(
@@ -18,8 +17,10 @@ test.describe("new post", () => {
     ).toBeVisible();
 
     await page.getByRole("link", { name: "Sign in" }).click();
+
     await page.getByPlaceholder("Email").fill("leia@coderslab.pl");
     await page.getByPlaceholder("Password").fill("secret");
+
     await page.getByRole("button").click();
 
     await expect(page.getByRole("link", { name: "leia" })).toBeVisible();
