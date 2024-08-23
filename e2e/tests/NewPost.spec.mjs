@@ -16,7 +16,8 @@ test.describe("new post", () => {
       page.getByRole("button", { name: "Global Feed" })
     ).toBeVisible();
 
-    await page.getByRole("link", { name: "Sign in" }).click();
+    await newPost.clickNewPostButtons("link", "Sign in");
+    // await page.getByRole("link", { name: "Sign in" }).click();
     await newPost.fillNewPostInput("Email", "leia@coderslab.pl");
     await newPost.fillNewPostInput("Password", "secret");
     await page.getByRole("button").click();
