@@ -5,6 +5,7 @@ export class Common {
   constructor(page) {
     this.page = page;
   }
+  //fill input
   async fillInput(name, value) {
     await this.#getInput(name).fill(value);
   }
