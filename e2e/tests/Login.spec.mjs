@@ -1,8 +1,14 @@
-import { test, expect } from "@playwright/test";
+import { test as base, expect } from "@playwright/test";
+import { injectLogin } from "./pages/Login.mjs";
+
+const test = base.extend({
+  login: injectLogin,
+});
 
 test.describe("Login flow", () => {
   test("Go to login page, submit form with valid data, verify redirection", async ({
     page,
+    injectLogin,
   }) => {
     await page.goto("/");
 
