@@ -17,7 +17,8 @@ test.describe("Login flow", () => {
     await login.fillLoginInput("email", "luke@coderslab.pl");
     // await page.locator("input[type='email']").fill("luke@coderslab.pl");
 
-    await page.locator("input[type='password']").fill("secret");
+    await login.fillLoginInput("password", "secret");
+    // await page.locator("input[type='password']").fill("secret");
 
     await page.locator("button[type='submit']").click();
 
