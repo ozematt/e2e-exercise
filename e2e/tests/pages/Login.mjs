@@ -6,4 +6,7 @@ class Login extends Common {
   constructor(page) {
     super(page);
   }
+  async fillLoginInput(type, value) {
+    await this.page.locator(`input[type=${type}]`).fill(value);
+  }
 }
