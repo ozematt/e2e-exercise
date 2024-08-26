@@ -2,5 +2,5 @@ class Article {
   constructor(request) {
     this.request = request;
   }
-  async create() {}
+  async create(title, summary, description, tags) {}
 }
