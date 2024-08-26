@@ -8,13 +8,14 @@ const test = base.extend({
 test.describe("Login flow", () => {
   test("Go to login page, submit form with valid data, verify redirection", async ({
     page,
-    injectLogin,
+    login,
   }) => {
     await page.goto("/");
 
     await page.locator(".nav-link[href='/login']").click();
 
-    await page.locator("input[type='email']").fill("luke@coderslab.pl");
+    await login.fillLoginInput("email", "luke@coderslab.pl");
+    // await page.locator("input[type='email']").fill("luke@coderslab.pl");
 
     await page.locator("input[type='password']").fill("secret");
 
