@@ -1,11 +1,15 @@
 import { test as base, expect } from "@playwright/test";
 import { injectArticle } from "./pages/Article";
 import { injectCommon } from "./pages/Common.mjs";
+import { injectArticleService } from "./services/Article.mjs";
 
 const test = base.extend({
   article: injectArticle,
+  articleService: injectArticleService,
   common: injectCommon,
 });
+
+test.beforeEach(async({ articleService }));
 
 test.describe("User actions on page", () => {
   test("user flow check", async ({ page, article, common }) => {
