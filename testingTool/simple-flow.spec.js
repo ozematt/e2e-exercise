@@ -29,6 +29,13 @@ test.describe("Articles creation", async () => {
     userService,
     articleService,
   }) => {
+    //create article author user
+    await userService.create({
+      email: CONFIGURATION.articleAuthorEmail,
+      password: CONFIGURATION.articleAuthorPassword,
+      username: CONFIGURATION.articleAuthorUsername,
+    });
+
     const { user: createdAuthor } = await userService.create({
       email: CONFIGURATION.author.email,
       password: CONFIGURATION.author.password,
