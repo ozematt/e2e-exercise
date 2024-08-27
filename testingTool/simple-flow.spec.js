@@ -42,21 +42,25 @@ test.describe("users interaction", async () => {
       password: AUTHOR_CONFIGURATION.password,
     });
 
-    // implementacja wykorzystania serwisu Article
     const { article } = await articleService.create({
-      body: "This is body from e2e - 2",
-      description: "This is description from E2E - 2",
-      tagList: ["#createdByE2E", "#multipleTest"],
-      title: `Created by E2E - ${id}`,
+      body: "This is body for testing article e2e",
+      description: "This is description for testing article e2e",
+      tagList: ["#created-e2e", "#multipleTest"],
+      title: `Created by ${AUTHOR_CONFIGURATION.username}`,
       token: loggedUser.token,
+    });
+
+    const { user: loggedUser2 } = await authService.login({
+      email: COMMENTING_CONFIGURATION.email,
+      password: COMMENTING_CONFIGURATION.password,
     });
 
     // articleUrl oraz articleId wykorzystywane z odpowiedzi, którą zwraca metoda create serwisu Article
     await commentService.create({
       articleUrl: article.slug,
       articleId: article.id,
-      authorId: createdUser.id,
-      comment: `This is a comment created in E2E by user ${user.email}`,
+      authorId: createdAuthor.id,
+      comment: COMMENTING_CONFIGURATION.comment,
       token: loggedUser.token,
     });
   });
