@@ -9,7 +9,7 @@ class User extends Common {
   }
   async create({ email, username, password }) {
     const data = { user: { email, username, password } };
-    const response = await this.requestToEndpoint("/api/user", {
+    const response = await this.requestToEndpoint("/api/users", {
       data,
       method: "post",
       status: 201,

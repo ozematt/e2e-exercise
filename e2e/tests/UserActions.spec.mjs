@@ -17,16 +17,17 @@ const test = base.extend({
 
 test.describe("User actions on page", () => {
   const user = {};
+
   test.beforeEach(
+    // wstrzyknięty wcześniej articleService wyciągamy do beforeEach'a
     async ({ articleService, authService, commentService, userService }) => {
       const id = Date.now();
-
       Object.assign(user, {
         email: `test-${id}@coderslab.pl`,
         password: "secret",
       });
 
-      const { user: createdUser } = await authService.create({
+      const { user: createdUser } = await userService.create({
         email: user.email,
         password: user.password,
         username: "e2euser",
@@ -37,6 +38,7 @@ test.describe("User actions on page", () => {
         password: user.password,
       });
 
+      // implementacja wykorzystania serwisu Article
       const { article } = await articleService.create({
         body: "This is body from e2e - 2",
         description: "This is description from E2E - 2",
@@ -45,6 +47,7 @@ test.describe("User actions on page", () => {
         token: loggedUser.token,
       });
 
+      // articleUrl oraz articleId wykorzystywane z odpowiedzi, którą zwraca metoda create serwisu Article
       await commentService.create({
         articleUrl: article.slug,
         articleId: article.id,
@@ -54,6 +57,7 @@ test.describe("User actions on page", () => {
       });
     }
   );
+
   test("user flow check", async ({ page, article, common }) => {
     //entered main page
     await page.goto("http://127.0.0.1:3000");

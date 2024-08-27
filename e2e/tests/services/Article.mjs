@@ -10,7 +10,7 @@ class Article extends Common {
   async create({ body, description, tagList, title, token }) {
     const data = { article: { body, description, tagList, title } };
 
-    const response = await this.requestToEndpoint("/api/article", {
+    const response = await this.requestToEndpoint("/api/articles", {
       data,
       method: "post",
       token,

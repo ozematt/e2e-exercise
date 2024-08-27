@@ -14,7 +14,7 @@ class Comment extends Common {
       comment,
     };
     const response = await this.requestToEndpoint(
-      `/api/article/${articleUrl}/comment`,
+      `/api/articles/${articleUrl}/comments`,
       {
         data,
         method: "post",
