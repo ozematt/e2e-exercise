@@ -19,7 +19,6 @@ test.describe("User actions on page", () => {
   const user = {};
 
   test.beforeEach(
-    // wstrzyknięty wcześniej articleService wyciągamy do beforeEach'a
     async ({ articleService, authService, commentService, userService }) => {
       const id = Date.now();
       Object.assign(user, {
