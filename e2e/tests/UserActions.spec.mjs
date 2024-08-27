@@ -2,16 +2,20 @@ import { test as base, expect } from "@playwright/test";
 import { injectArticle } from "./pages/Article";
 import { injectCommon } from "./pages/Common.mjs";
 import { injectArticleService } from "./services/Article.mjs";
+import { injectAuthService } from "./services/Auth.mjs";
+import { injectCommentService } from "./services/Comment.mjs";
 
 const test = base.extend({
   article: injectArticle,
   articleService: injectArticleService,
+  commentService: injectCommentService,
+  authService: injectAuthService,
+
   common: injectCommon,
 });
 
-test.beforeEach(async({ articleService }));
-
 test.describe("User actions on page", () => {
+  test.beforeEach();
   test("user flow check", async ({ page, article, common }) => {
     //entered main page
     await page.goto("http://127.0.0.1:3000");
