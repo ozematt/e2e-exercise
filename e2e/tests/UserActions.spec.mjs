@@ -16,28 +16,35 @@ const test = base.extend({
 });
 
 test.describe("User actions on page", () => {
+  //empty object user
   const user = {};
 
+  //data preparation before the test
   test.beforeEach(
     async ({ articleService, authService, commentService, userService }) => {
+      //dynamic id
       const id = Date.now();
+
+      //assigning a value to an object
       Object.assign(user, {
         email: `test-${id}@coderslab.pl`,
         password: "secret",
       });
 
+      //a user was created with data from the object "user"
       const { user: createdUser } = await userService.create({
         email: user.email,
         password: user.password,
         username: "e2euser",
       });
 
+      //logged user
       const { user: loggedUser } = await authService.login({
         email: user.email,
         password: user.password,
       });
 
-      // implementacja wykorzystania serwisu Article
+      // implementation of the use of the Article service, saving a new article to a variable "article"
       const { article } = await articleService.create({
         body: "This is body from e2e - 2",
         description: "This is description from E2E - 2",
@@ -46,7 +53,7 @@ test.describe("User actions on page", () => {
         token: loggedUser.token,
       });
 
-      // articleUrl oraz articleId wykorzystywane z odpowiedzi, którą zwraca metoda create serwisu Article
+      // articleUrl and articleId used from the response returned by the create method of the Article service
       await commentService.create({
         articleUrl: article.slug,
         articleId: article.id,
