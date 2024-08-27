@@ -18,6 +18,7 @@ class Article extends Common {
   async fillArticleContent(content) {
     await this.page.locator("textarea[name='body']").fill(content);
   }
+
   //for list use -> for of loop
   async addTags(tags) {
     const locator = this.page.locator('input[placeholder="Enter tags"]');
