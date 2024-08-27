@@ -7,4 +7,13 @@ class Auth extends Common {
   constructor(request) {
     super(request);
   }
+  async login({ email, password }) {
+    const data = { user: { email, password } };
+    const response = await this.requestToEndpoint("/api/user/login", {
+      data,
+      method: "post",
+      status: 200,
+    });
+    return response.json();
+  }
 }
