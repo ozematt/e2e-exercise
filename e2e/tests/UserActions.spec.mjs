@@ -6,6 +6,7 @@ import { injectAuthService } from "./services/Auth.mjs";
 import { injectCommentService } from "./services/Comment.mjs";
 import { injectUserService } from "./services/User.mjs";
 
+//injected POM and services
 const test = base.extend({
   article: injectArticle,
   articleService: injectArticleService,
@@ -15,6 +16,7 @@ const test = base.extend({
   common: injectCommon,
 });
 
+////TEST
 test.describe("User actions on page", () => {
   //empty object user
   const user = {};
