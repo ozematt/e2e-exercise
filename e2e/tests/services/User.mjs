@@ -1,5 +1,8 @@
 import { Common } from "./Common.mjs";
 
+export const injectUserService = async ({ request }, use) =>
+  await use(new User(request));
+
 class User extends Common {
   constructor(request) {
     super(request);
