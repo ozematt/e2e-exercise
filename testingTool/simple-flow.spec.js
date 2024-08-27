@@ -35,6 +35,11 @@ test.describe("Articles creation", async () => {
       password: CONFIGURATION.articleAuthorPassword,
       username: CONFIGURATION.articleAuthorUsername,
     });
+    //logged article author user
+    const { user: loggedAuthorUser } = await authService.login({
+      email: CONFIGURATION.articleAuthorEmail,
+      password: CONFIGURATION.articleAuthorPassword,
+    });
 
     const { user: createdAuthor } = await userService.create({
       email: CONFIGURATION.author.email,
