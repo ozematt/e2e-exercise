@@ -6,7 +6,7 @@ const test = base.extend({
 });
 
 test.describe("Login flow", () => {
-  test("Go to login page, submit form with valid data, verify redirection", async ({
+  test("Go to login page, submit form with valid data, verify redirection @login", async ({
     page,
     login,
   }) => {
