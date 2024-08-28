@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Main page element displayed", () => {
-  test("Sing In and Sing Up element r visible", async ({ page }) => {
+  test("Sing In and Sing Up element r visible @login", async ({ page }) => {
     await page.goto("/");
 
     const feedButton = page.getByRole("button", { name: "Your Feed" });
@@ -12,7 +12,7 @@ test.describe("Main page element displayed", () => {
     await expect(singUp).toBeVisible();
     await expect(singIn).toBeVisible();
   });
-  test("checking log in", async ({ page }) => {
+  test("checking log in @login", async ({ page }) => {
     await page.goto("/");
 
     await page.locator(".nav-link[href='/login']").click();
