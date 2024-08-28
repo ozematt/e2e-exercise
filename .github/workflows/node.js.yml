@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        node-version: [18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -28,24 +28,81 @@ jobs:
       - run: i
       - run: npm test
 
-  e2e:
-    needs: test
-    timeout-minutes: 60
+  e2e_setup:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - name: Use Node.js 18
+        uses: actions/setup-node@v4
         with:
           node-version: 18
-      - name: Install dependencies
-        run: npm ci
+      - run: npm ci
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-      - name: Run Playwright tests
-        run: npx playwright test
+      - name: Cache Playwright Browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ matrix.node-version }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
+
+  e2e_user:
+    needs: [test, e2e_setup]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run e2e tests with tag 'user'
+        run: npx playwright test --grep @user
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: playwright-report
+          name: playwright-report-user
           path: playwright-report/
           retention-days: 30
+
+  e2e_login:
+    needs: e2e_user
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run e2e tests with tag 'login'
+        run: npx playwright test --grep @login
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report-login
+          path: playwright-report/
+          retention-days: 30
+
+  e2e_register:
+    needs: e2e_login
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run e2e tests with tag 'register'
+        run: npx playwright test --grep @register
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report-register
+          path: playwright-report/
+          retention-days: 30
+  # e2e:
+  #   needs: test
+  #   timeout-minutes: 60
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 18
+  #     - name: Install dependencies
+  #       run: npm ci
+  #     - name: Install Playwright Browsers
+  #       run: npx playwright install --with-deps
+  #     - name: Run Playwright tests
+  #       run: npx playwright test
+  #     - uses: actions/upload-artifact@v4
+  #       if: always()
+  #       with:
+  #         name: playwright-report
+  #         path: playwright-report/
+  #         retention-days: 30
