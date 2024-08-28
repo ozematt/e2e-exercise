@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 test.describe("Register user flow", () => {
-  test("Go to register page, submit form with valid data, verify redirection", async ({
+  test("Go to register page, submit form with valid data, verify redirection @register", async ({
     page,
   }) => {
     const id = Date.now();

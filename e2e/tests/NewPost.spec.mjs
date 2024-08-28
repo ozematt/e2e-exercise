@@ -6,7 +6,7 @@ const test = base.extend({
 });
 
 test.describe("new post", () => {
-  test("Go to the post creation page", async ({ page, newPost }) => {
+  test("Go to the post creation page @post", async ({ page, newPost }) => {
     await page.goto("/");
 
     await expect(
