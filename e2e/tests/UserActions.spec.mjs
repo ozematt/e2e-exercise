@@ -66,7 +66,7 @@ test.describe("User actions on page", () => {
     }
   );
 
-  test("user flow check", async ({ page, article, common }) => {
+  test("user flow check @user", async ({ page, article, common }) => {
     //entered main page
     await page.goto("http://127.0.0.1:3000");
 
