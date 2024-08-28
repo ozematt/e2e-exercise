@@ -10,7 +10,7 @@ on:
     branches: ["main"]
 
 jobs:
-  test:
+  test_units:
     runs-on: ubuntu-latest
 
     strategy:
@@ -48,7 +48,7 @@ jobs:
             ${{ runner.os }}-playwright-
 
   e2e_user:
-    needs: [test, e2e_setup]
+    needs: [test_units, e2e_setup]
     runs-on: ubuntu-latest
     steps:
       - name: Run e2e tests with tag 'user'
@@ -85,6 +85,7 @@ jobs:
           name: playwright-report-register
           path: playwright-report/
           retention-days: 30
+
   # e2e:
   #   needs: test
   #   timeout-minutes: 60
