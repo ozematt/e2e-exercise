@@ -86,6 +86,8 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
+  # without stage:
+
   # e2e:
   #   needs: test
   #   timeout-minutes: 60
