@@ -27,7 +27,7 @@ jobs:
           cache: "npm"
       - run: i
       - run: npm test
-
+  # stage:
   e2e_setup:
     runs-on: ubuntu-latest
     steps:
