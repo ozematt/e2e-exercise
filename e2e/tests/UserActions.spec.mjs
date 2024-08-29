@@ -1,19 +1,19 @@
 import { test as base, expect } from "@playwright/test";
 import { injectArticle } from "./pages/Article";
-import { injectCommon } from "./pages/Common.mjs";
 import { injectArticleService } from "./services/Article.mjs";
 import { injectAuthService } from "./services/Auth.mjs";
 import { injectCommentService } from "./services/Comment.mjs";
 import { injectUserService } from "./services/User.mjs";
+import { injectLogin } from "./pages/Login.mjs";
 
 //injected POM and services
 const test = base.extend({
   article: injectArticle,
+  login: injectLogin,
   articleService: injectArticleService,
   commentService: injectCommentService,
   authService: injectAuthService,
   userService: injectUserService,
-  common: injectCommon,
 });
 
 ////TEST
@@ -66,7 +66,7 @@ test.describe("User actions on page", () => {
     }
   );
 
-  test("user flow check @user", async ({ page, article, common }) => {
+  test("user flow check @user", async ({ page, article, login }) => {
     //entered main page
     await page.goto("http://127.0.0.1:3000");
 
@@ -81,9 +81,9 @@ test.describe("User actions on page", () => {
     const email = `obi-one-${id}@coderslab.pl`;
 
     //do not use common like that
-    await common.fillInput("username", "obi-one");
-    await common.fillInput("email", email);
-    await common.fillInput("password", "123456");
+    await login.fillInput("username", "obi-one");
+    await login.fillInput("email", email);
+    await login.fillInput("password", "123456");
 
     //values check
     await expect(page.locator("input[placeholder='Your Name']")).toHaveValue(
