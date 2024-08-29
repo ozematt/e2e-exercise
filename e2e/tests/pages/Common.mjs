@@ -13,7 +13,7 @@ export class Common {
   async clearInput(name) {
     await this.#getInput(name).clear();
   }
-
+  //click on button
   async submitClick(type) {
     await this.page.locator(`button[type=${type}]`).click();
   }
