@@ -42,7 +42,7 @@ jobs:
           key: ${{ runner.os }}-playwright-${{ matrix.node-version }}
           restore-keys: |
             ${{ runner.os }}-playwright-
-  # stage, test with tag user:
+  # "stage" - test with tag user:
   e2e_user:
     needs: [test_units, e2e_setup]
     runs-on: ubuntu-latest
@@ -55,7 +55,7 @@ jobs:
           name: playwright-report-user
           path: playwright-report/
           retention-days: 30
-  # stage, test with tag login:
+  # "stage" - test with tag login:
   e2e_login:
     needs: e2e_user
     runs-on: ubuntu-latest
@@ -68,7 +68,7 @@ jobs:
           name: playwright-report-login
           path: playwright-report/
           retention-days: 30
-  # stage, test with tag register:
+  # "stage" - test with tag register:
   e2e_register:
     needs: e2e_login
     runs-on: ubuntu-latest
@@ -82,7 +82,7 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
-  # without stage:
+  # without "stage":
 
   # e2e:
   #   needs: test
