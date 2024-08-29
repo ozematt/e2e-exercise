@@ -11,6 +11,10 @@ class Article extends Common {
     await this.fillInput("title", title);
   }
 
+  async fillArticleSummary(summary) {
+    await this.fillInput("description", summary);
+  }
+
   async fillArticleContent(content) {
     await this.page.locator("textarea[name='body']").fill(content);
   }
