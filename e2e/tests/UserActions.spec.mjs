@@ -80,10 +80,9 @@ test.describe("User actions on page", () => {
     const id = Date.now();
     const email = `obi-one-${id}@coderslab.pl`;
 
-    //do not use common like that
-    await login.fillInput("username", "obi-one");
-    await login.fillInput("email", email);
-    await login.fillInput("password", "123456");
+    await login.fillLoginValue("username", "obi-one");
+    await login.fillLoginValue("email", email);
+    await login.fillLoginValue("password", "123456");
 
     //values check
     await expect(page.locator("input[placeholder='Your Name']")).toHaveValue(
