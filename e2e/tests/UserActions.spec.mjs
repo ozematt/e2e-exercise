@@ -37,7 +37,7 @@ test.describe("User actions on page", () => {
       const { user: createdUser } = await userService.create({
         email: user.email,
         password: user.password,
-        username: "e2euser",
+        username: "e2e-user",
       });
 
       //logged user
@@ -103,7 +103,7 @@ test.describe("User actions on page", () => {
     await article.fillArticleTitle("Tytuł artykułu");
     await article.fillArticleSummary("O niczym");
     await article.fillArticleContent("Treść aktykułu...");
-    await article.addTags(["#tage2e"]);
+    await article.addTags(["#tag-e2e"]);
     await article.clickPublish();
 
     //main page return
@@ -111,7 +111,7 @@ test.describe("User actions on page", () => {
 
     //tag visible check
     await expect(
-      page.getByRole("link", { name: "#tage2e", exact: true })
+      page.getByRole("link", { name: "#tag-e2e", exact: true })
     ).toBeVisible();
   });
 });
