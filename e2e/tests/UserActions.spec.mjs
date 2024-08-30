@@ -100,7 +100,7 @@ test.describe("User actions on page", () => {
     await page.getByRole("link", { name: "New Post" }).click();
 
     //new post form fill
-    await article.fillArticleTitle("Tytuł artykułu");
+    await article.fillArticleTitle("Sample article title");
     await article.fillArticleSummary("O niczym");
     await article.fillArticleContent("Treść aktykułu...");
     await article.addTags(["#tag-e2e"]);
