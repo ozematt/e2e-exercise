@@ -5,7 +5,7 @@ test.describe("Register user flow", () => {
     page,
   }) => {
     const id = Date.now();
-    const email = `yoda-${id}@coderslab.pl`;
+    const email = `yoda-${id}@coders-lab.pl`;
 
     await page.goto("/");
 
