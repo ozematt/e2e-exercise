@@ -3,7 +3,6 @@ import { injectCommentService } from "../e2e/tests/services/Comment.mjs";
 import { injectAuthService } from "../e2e/tests/services/Auth.mjs";
 import { injectUserService } from "../e2e/tests/services/User.mjs";
 import { injectArticleService } from "../e2e/tests/services/Article.mjs";
-import { log } from "console";
 
 //configuration data for two users
 const CONFIGURATION = {
