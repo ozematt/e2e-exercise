@@ -7,14 +7,15 @@ class Article extends Common {
   constructor(page) {
     super(page);
   }
+  //used class common
   async fillArticleTitle(title) {
     await this.fillInput("title", title);
   }
-
+  //used class common
   async fillArticleSummary(summary) {
     await this.fillInput("description", summary);
   }
-
+  //fill textarea
   async fillArticleContent(content) {
     await this.page.locator("textarea[name='body']").fill(content);
   }
@@ -28,7 +29,7 @@ class Article extends Common {
       await locator.press("Enter");
     }
   }
-
+  //used class common
   async clickPublish() {
     await this.submitClick("submit");
   }
