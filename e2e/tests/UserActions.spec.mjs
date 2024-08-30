@@ -29,7 +29,7 @@ test.describe("User actions on page", () => {
 
       //assigning a value to an object
       Object.assign(user, {
-        email: `test-${id}@coderslab.pl`,
+        email: `test-${id}@coders-lab.pl`,
         password: "secret",
       });
 
@@ -78,7 +78,7 @@ test.describe("User actions on page", () => {
 
     //sing up form fill
     const id = Date.now();
-    const email = `obi-one-${id}@coderslab.pl`;
+    const email = `obi-one-${id}@coders-lab.pl`;
 
     await login.fillLoginValue("username", "obi-one");
     await login.fillLoginValue("email", email);
