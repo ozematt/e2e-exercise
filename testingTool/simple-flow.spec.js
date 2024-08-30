@@ -12,7 +12,7 @@ const CONFIGURATION = {
   articleAuthorUsername: "Han Solo",
   articleCommenterEmail: "commenter@automation.coderslab.pl",
   articleCommenterPassword: "secret",
-  articleCommenterUsername: "Chewbacca",
+  articleCommenterUsername: "Star-Wars",
 };
 
 //services injected
