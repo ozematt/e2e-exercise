@@ -20,10 +20,10 @@ test.describe("new post", () => {
     await newPost.fillNewPostInput("Email", "leia@coderslab.pl");
     await newPost.fillNewPostInput("Password", "secret");
     await page.getByRole("button").click();
-    await expect(page.getByRole("link", { name: "leia" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Leila" })).toBeVisible();
 
     await newPost.clickNewPostButtons("link", "New Post");
-    await newPost.fillNewPostInput("Article Title", "Przykładowy tytuł");
+    await newPost.fillNewPostInput("Article Title", "Sample article title");
     await newPost.fillNewPostInput(
       "What's this article about?",
       "Przykładowy tekst"
@@ -42,6 +42,6 @@ test.describe("new post", () => {
 
     expect(page.url()).toBe("http://127.0.0.1:3000/article/przyk-adowy-tytu");
 
-    await expect(page.locator("h1")).toHaveText("Przykładowy tytuł");
+    await expect(page.locator("h1")).toHaveText("Sample article title");
   });
 });
