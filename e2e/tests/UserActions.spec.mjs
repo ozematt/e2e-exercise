@@ -101,8 +101,8 @@ test.describe("User actions on page", () => {
 
     //new post form fill
     await article.fillArticleTitle("Sample article title");
-    await article.fillArticleSummary("O niczym");
-    await article.fillArticleContent("Treść aktykułu...");
+    await article.fillArticleSummary("Sample text");
+    await article.fillArticleContent("Sample article content");
     await article.addTags(["#tag-e2e"]);
     await article.clickPublish();
 
