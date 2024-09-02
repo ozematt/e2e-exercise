@@ -21,7 +21,14 @@ class Article extends Common {
   }
 
   //for list use -> for of loop
+  async addTags(tags) {
+    const locator = this.page.locator('input[placeholder="Enter tags"]');
 
+    for (const tag of tags) {
+      await locator.fill(tag);
+      await locator.press("Enter");
+    }
+  }
   //used class common
   async clickPublish() {
     await this.submitClick("submit");
