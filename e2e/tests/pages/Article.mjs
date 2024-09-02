@@ -11,14 +11,6 @@ class Article extends Common {
   async fillArticleTitle(title) {
     await this.fillInput("title", title);
   }
-  //used class common
-  async fillArticleSummary(summary) {
-    await this.fillInput("description", summary);
-  }
-  //fill textarea
-  async fillArticleContent(content) {
-    await this.page.locator("textarea[name='body']").fill(content);
-  }
 
   //for list use -> for of loop
   async addTags(tags) {
