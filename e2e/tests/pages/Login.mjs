@@ -15,7 +15,4 @@ class Login extends Common {
     await this.page.locator(`input[type=${type}]`).fill(value);
   }
   //used class common
-  async click(type) {
-    await this.submitClick(type);
-  }
 }
