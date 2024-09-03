@@ -74,5 +74,14 @@ test.describe("Articles creation", async () => {
     });
 
     //logged in console
+    console.log({
+      authorEmail: CONFIGURATION.articleAuthorEmail,
+      authorPassword: CONFIGURATION.articleAuthorPassword,
+      authorToken: loggedAuthorUser.token,
+      commenterEmail: CONFIGURATION.articleCommenterEmail,
+      commenterPassword: CONFIGURATION.articleCommenterPassword,
+      commenterToken: loggedCommenterUser.token,
+      articleUrl: article.slug,
+    });
   });
 });
