@@ -1,4 +1,3 @@
-import { test as base } from "@playwright/test";
 import { injectCommentService } from "../e2e/tests/services/Comment.mjs";
 import { injectAuthService } from "../e2e/tests/services/Auth.mjs";
 import { injectUserService } from "../e2e/tests/services/User.mjs";
