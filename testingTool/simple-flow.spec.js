@@ -4,16 +4,6 @@ import { injectAuthService } from "../e2e/tests/services/Auth.mjs";
 import { injectUserService } from "../e2e/tests/services/User.mjs";
 import { injectArticleService } from "../e2e/tests/services/Article.mjs";
 
-//configuration data for two users
-const CONFIGURATION = {
-  articleAuthorEmail: "author@automation.coderslab.pl",
-  articleAuthorPassword: "secret",
-  articleAuthorUsername: "Han Solo",
-  articleCommenterEmail: "commenter@automation.coderslab.pl",
-  articleCommenterPassword: "secret",
-  articleCommenterUsername: "Star-Wars",
-};
-
 //services injected
 const test = base.extend({
   commentService: injectCommentService,
