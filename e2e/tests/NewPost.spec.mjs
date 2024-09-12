@@ -20,6 +20,7 @@ test.describe("new post", () => {
     await newPost.fillNewPostInput("Email", "leia@coderslab.pl");
     await newPost.fillNewPostInput("Password", "secret");
     await page.getByRole("button").click();
+
     await expect(page.getByRole("link", { name: "leia" })).toBeVisible();
 
     await newPost.clickNewPostButtons("link", "New Post");
